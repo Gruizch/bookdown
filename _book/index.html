@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Análisis de Series de Tiempo</title>
+  <meta name="description" content="Análisis de Series de Tiempo" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Análisis de Series de Tiempo" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Análisis de Series de Tiempo" />
+  
+  
+  
+
+<meta name="author" content="Gustavo Ruiz Chacon" />
+
+
+<meta name="date" content="2024-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ejercicio de Series de tiempo</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#data"><i class="fa fa-check"></i><b>1</b> Data</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Análisis de Series de Tiempo</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Análisis de Series de Tiempo</h1>
+<p class="author"><em>Gustavo Ruiz Chacon</em></p>
+<p class="date"><em>2024-04-22</em></p>
+</div>
+<div id="data" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Data<a href="#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>Tipo de Información a Trabajar:</strong></p>
+<p>En este libro se usara una base de datos histórica que contiene información detallada sobre el precio del mercado internacional del gas. Esta base de datos incluye registros periódicos mensuales del precio de <span class="math inline">\(Apertura\)</span>, <span class="math inline">\(Maximo\)</span>, <span class="math inline">\(Minimo\)</span> y <span class="math inline">\(Variación\)</span> del gas en diferentes mercados internacionales durante los años 2000 a 2024.</p>
+<p><strong>Impacto de la variación del precio del gas:</strong></p>
+<p>Un comportamiento inestable en el precio del gas natural puede tener tanto impactos positivos como negativos en las empresas que dependen de este recurso. Por un lado, los aumentos repentinos en el precio del gas pueden aumentar los costos de producción y operación para las empresas, lo que reduce su rentabilidad y competitividad en el mercado. Por otro lado, una disminución en el precio del gas puede ser beneficiosa para las empresas al reducir sus costos de producción y mejorar su margen de beneficio.</p>
+<p><strong>Importancia del Pronóstico:</strong></p>
+<p>El gas natural es una fuente de energía fundamental para la industria, la generación de electricidad, el transporte y el sector residencial. Por lo tanto, tener una idea precisa de cómo se comportará el precio del gas en el futuro es crucial para la toma de decisiones estratégicas en estos sectores.</p>
+<p>Al desarrollar un modelo de pronóstico del precio del gas, buscamos proporcionar a las empresas y a los actores del mercado una herramienta predictiva que les permita anticipar y prepararse para los cambios en el precio del gas. Esto les brindará la capacidad de tomar decisiones informadas sobre la adquisición de gas, la planificación de la producción, la fijación de precios y otras actividades comerciales. Además nos permitira definir la estrategia e identificar en que momento se deben hacer transiciones a otros tipos de combustibles.</p>
+<div class="float">
+<img src="Captura.png" alt="Fuente https://es.investing.com/" />
+<div class="figcaption"><em>Fuente <a href="https://es.investing.com/" class="uri">https://es.investing.com/</a></em></div>
+</div>
+<p>Investing es una plataforma de mercados financieros que proporciona datos en tiempo real, cotizaciones, gráficos, herramientas financieras, noticias de última hora y análisis de 250 mercados del mundo a través de sus 44 ediciones internacionales.</p>
+<p><em>Esta información es abierta para el publico</em></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown.pdf", "bookdown.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+--- 
+title: "Análisis de Series de Tiempo"
+author: "Gustavo Ruiz Chacon"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::pdf_book
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: 
+---
+
+# Data
+
+**Tipo de Información a Trabajar:**
+
+En este libro se usara una base de datos histórica que contiene información detallada sobre el precio del mercado internacional del gas. Esta base de datos incluye registros periódicos mensuales del precio de $Apertura$, $Maximo$, $Minimo$ y $Variación$ del gas en diferentes mercados internacionales durante los años 2000 a 2024.
+
+**Impacto de la variación del precio del gas:**
+
+Un comportamiento inestable en el precio del gas natural puede tener tanto impactos positivos como negativos en las empresas que dependen de este recurso. Por un lado, los aumentos repentinos en el precio del gas pueden aumentar los costos de producción y operación para las empresas, lo que reduce su rentabilidad y competitividad en el mercado. Por otro lado, una disminución en el precio del gas puede ser beneficiosa para las empresas al reducir sus costos de producción y mejorar su margen de beneficio. 
+
+**Importancia del Pronóstico:**
+
+El gas natural es una fuente de energía fundamental para la industria, la generación de electricidad, el transporte y el sector residencial. Por lo tanto, tener una idea precisa de cómo se comportará el precio del gas en el futuro es crucial para la toma de decisiones estratégicas en estos sectores.
+
+Al desarrollar un modelo de pronóstico del precio del gas, buscamos proporcionar a las empresas y a los actores del mercado una herramienta predictiva que les permita anticipar y prepararse para los cambios en el precio del gas. Esto les brindará la capacidad de tomar decisiones informadas sobre la adquisición de gas, la planificación de la producción, la fijación de precios y otras actividades comerciales. Además nos permitira definir la estrategia e identificar en que momento se deben hacer transiciones a otros tipos de combustibles. 
+
+
+![*Fuente https://es.investing.com/*](Captura.png)
+
+
+
+Investing es una plataforma de mercados financieros que proporciona datos en tiempo real, cotizaciones, gráficos, herramientas financieras, noticias de última hora y análisis de 250 mercados del mundo a través de sus 44 ediciones internacionales.
+
+*Esta información es abierta para el publico*
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
